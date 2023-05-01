@@ -1,3 +1,19 @@
+/* Cadastro */
 .options{
     margin-bottom: 5px;
+}
+
+.planos input{
+    display: none;
+}
+
+.planos label{
+    margin-left: 5px;
+    border: 1px solid rgb(126, 123, 123);
+    background-color: rgb(206, 202, 202);
+}
+.planos input[type="radio"]:checked + label{
+    background-color: black;
+    color: white;
+    border: 1px solid rgb(126, 123, 123);
 }

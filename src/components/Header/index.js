@@ -14,7 +14,7 @@ export default function Header() {
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li> <Link class="nav-link px-2 link-secondary" to='/'>Home</Link> </li>
                     <li> <Link class="nav-link px-2 link-dark" to='/planos'>Planos</Link> </li>
-                    <li> <Link class="nav-link px-2 link-dark" to='/sobre/meunome'>Sobre</Link> </li>
+                    <li> <Link class="nav-link px-2 link-dark" to='/sobre/Lucas'>Sobre</Link> </li>
                 </ul>
 
                 {(() => {

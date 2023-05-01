@@ -4,6 +4,7 @@ import Title from '../components/Titulo';
 
 function Sobre(){
     const {name} = useParams();
+    console.log(name)
 
     return(
         <div>

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import Detalhes from "../../pages/detalhes";
 import "./Card.css";
 
 function Assitido({ javisto }) {
@@ -36,6 +38,10 @@ export default function Card() {
     return <p>Carregando...</p>
   }
 
+  function detalhesFilm(filme){
+    <Link to={<Detalhes key={filme.id} nota={filme.nota} />}></Link>
+  }
+
   function handleTitChange(event) {
     setFilm_Tit(event.target.value);
   }
@@ -47,11 +53,11 @@ export default function Card() {
     setOrdena(event.target.value);
   }
   data.sort((film1, film2) => {
-    if(ordena === 'titulo'){
+    if (ordena === 'titulo') {
       return film1.titulo.localeCompare(film2.titulo);
-    } else if(ordena === 'ano'){
+    } else if (ordena === 'ano') {
       return new Date(film1.ano) - new Date(film2.ano);
-    }else{
+    } else {
       return film2.nota - film1.nota;
     }
   })
@@ -76,7 +82,7 @@ export default function Card() {
                 {busca.map((filme, i) => (
                   <div className="col-3" key={i}>
                     <div className="card" >
-                      <img src={filme.poster} alt={filme.titulo} className="card-img-top" style={{ height: '400px', width: '200px', marginLeft: '50px', marginTop: '5px'}} />
+                      <img src={filme.poster} alt={filme.titulo} className="card-img-top" style={{ height: '400px', width: '200px', marginLeft: '50px', marginTop: '5px' }} />
                       <div className="card-body">
                         <h5 className="card-title">{filme.titulo} ({filme.ano}) </h5>
                         <p>Nota: {filme.nota}</p>
@@ -84,13 +90,13 @@ export default function Card() {
                           javisto={filme.assistido}
                         />
 
-                        <a
-                          href={`/detalhes/${filme.id}`}
-                        >
-                          <div className="btn btn-primary">
+
+                        <div className="btn btn-primary">
+                          <Link to='/detalhes/id'>
                             Detalhes
-                          </div>
-                        </a>
+                          </Link>
+                        </div>
+
                       </div>
                     </div>
 
@@ -114,13 +120,11 @@ export default function Card() {
                         <Assitido
                           javisto={filme.assistido}
                         />
-                        <a
-                          href={`/detalhes/${filme.id}`}
-                        >
-                          <div className="btn btn-primary">
-                            Detalhes
-                          </div>
-                        </a>
+                        <div className="btn btn-primary">
+                          <button className="btn btn-primary" onClick={detalhesFilm(filme)}>Detalhes</button>
+                           
+                        </div>
+
                       </div>
                     </div>
 
@@ -136,3 +140,5 @@ export default function Card() {
 
   )
 }
+
+{/*<Detalhes key={filme.id} nota={filme.nota} /> */}

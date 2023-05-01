@@ -15,16 +15,19 @@ export default function Cadastro() {
             </div>
             <div className='container'>
                 <h5>Plano escolhido</h5>
-                <input type="radio" name="plano" id="basico" value='basico'/>
-                <label className='basic' for="basico">Básico</label>
-                <input type="radio" name="plano" id="gold" value='gold'/>
-                <label className='ouro' for="gold">Gold</label>
-                <input type="radio" name="plano" id="diamond" value='diamond'/>
-                <label className='diamante' for="diamond">Diamond</label>
+                <div className='planos'>
+                    <input type="radio" name="plano" id="basico" value='basico' />
+                    <label for="basico">Básico</label>
+                    <input type="radio" name="plano" id="gold" value='gold' />
+                    <label for="gold">Gold</label>
+                    <input type="radio" name="plano" id="diamond" value='diamond' />
+                    <label for="diamond">Diamond</label>
+                </div>
+                
 
             </div>
             <div className='container'>
-                <div style={{marginLeft: '500px', marginTop: '100px'}}>
+                <div style={{ marginLeft: '500px', marginTop: '100px' }}>
                     <h5>Dados do cartão</h5>
                     <input className='cartao' type="text" name="cartao" id="nameCard" placeholder='Nome do cartão' /> <br />
                     <input className='cartao' type="text" name="cartao" id="numCard" maxLength='20' placeholder='Número do cartão' /> <br />
