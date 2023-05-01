@@ -13,7 +13,7 @@ export default function RoutesConfig(){
             <Route path='/' element= {<Home />} />
             <Route path='planos' element={<Planos />} />
             <Route path='sobre/:name' element={<Sobre />} />
-            <Route path='detalhes' element={<Detalhes />} />
+            <Route path='detalhes/:id' element={<Detalhes />} />
             <Route path='cadastro' element={<Cadastro />} />
             <Route path='*' element={<Erro />} />
         </Routes>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Detalhes from "../../pages/detalhes";
+import BotaoDetalhes from "./BotaoDetalhes";
 import "./Card.css";
 
 function Assitido({ javisto }) {
@@ -36,10 +37,6 @@ export default function Card() {
 
   if (!data) {
     return <p>Carregando...</p>
-  }
-
-  function detalhesFilm(filme){
-    <Link to={<Detalhes key={filme.id} nota={filme.nota} />}></Link>
   }
 
   function handleTitChange(event) {
@@ -90,12 +87,7 @@ export default function Card() {
                           javisto={filme.assistido}
                         />
 
-
-                        <div className="btn btn-primary">
-                          <Link to='/detalhes/id'>
-                            Detalhes
-                          </Link>
-                        </div>
+                        <Detalhes id={filme.id} nota={filme.nota} />
 
                       </div>
                     </div>
@@ -120,10 +112,8 @@ export default function Card() {
                         <Assitido
                           javisto={filme.assistido}
                         />
-                        <div className="btn btn-primary">
-                          <button className="btn btn-primary" onClick={detalhesFilm(filme)}>Detalhes</button>
-                           
-                        </div>
+
+                        <BotaoDetalhes id={filme.id} nota={filme.nota} />
 
                       </div>
                     </div>
@@ -134,11 +124,8 @@ export default function Card() {
             )
           }
         })()}
-
       </div>
     </div>
 
   )
 }
-
-{/*<Detalhes key={filme.id} nota={filme.nota} /> */}

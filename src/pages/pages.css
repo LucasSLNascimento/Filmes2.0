@@ -1,5 +1,5 @@
 /* Cadastro */
-.options{
+.options , .cartao{
     margin-bottom: 5px;
 }
 
@@ -16,4 +16,11 @@
     background-color: black;
     color: white;
     border: 1px solid rgb(126, 123, 123);
+}
+
+.infosPlanos_pessoal{
+    margin-left: 300px;
+}
+.infosCartao{
+    margin-left: 250px;
 }
