@@ -1,26 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import Detalhes from "../../pages/detalhes";
 import BotaoDetalhes from "./BotaoDetalhes";
+import Assistindo from '../Assistido/Assistindo'
 import "./Card.css";
-
-function Assitido({ javisto }) {
-  if (javisto) {
-    return (
-      <div>
-        <button onClick={Assistindo}>Assistir novamente</button>
-      </div>
-    )
-  }
-  return (
-    <div>
-      <button onClick={Assistindo}>Assistir</button>
-    </div>
-  )
-}
-function Assistindo() {
-  window.alert('Assistindo')
-}
 
 export default function Card() {
   const [data, setData] = useState(null);
@@ -62,7 +43,7 @@ export default function Card() {
     <div className="container text-center">
       <input className="buscador" type="search" name="busca" id="buscaFilme" value={film_Tit} onChange={handleTitChange} placeholder="Busca por filmes aqui" />
       <div class='col-sm'>
-        <label>Ordenar por</label>
+        <label >Ordenar por</label>
         <select onChange={handleOrdChange} value={ordena}>
           <option value="titulo">Titulo</option>
           <option value="ano">Ano</option>
@@ -82,7 +63,7 @@ export default function Card() {
                       <div className="card-body">
                         <h5 className="card-title">{filme.titulo} ({filme.ano}) </h5>
                         <p>Nota: {filme.nota}</p>
-                        <Assitido
+                        <Assistindo
                           javisto={filme.assistido}
                         />
 
@@ -90,7 +71,6 @@ export default function Card() {
 
                       </div>
                     </div>
-
                   </div>
                 ))}
               </div>
@@ -106,14 +86,13 @@ export default function Card() {
                         <h5 className="card-title">{filme.titulo}  </h5>
                         <h5 className="card-title">({filme.ano})</h5>
                         <p>Nota: {filme.nota}</p>
-                        <Assitido
+                        <Assistindo
                           javisto={filme.assistido}
                         />
                         <BotaoDetalhes id={filme.id} nota={filme.nota} />
 
                       </div>
                     </div>
-
                   </div>
                 ))}
               </div>

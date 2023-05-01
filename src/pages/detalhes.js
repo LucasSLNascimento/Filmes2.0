@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import Title from '../components/Titulo';
 import Comments from './../components/Comments/index';
+import Assistindo from '../components/Assistido/Assistindo'
 import { useParams } from 'react-router-dom';
 
 function Detalhes() {
@@ -26,7 +27,7 @@ function Detalhes() {
             <div className="container">
 
                 {(() => {
-                    if (data === null) {
+                    if (!data || !data.titulo || !data.ano || !data.sinopse || !data.poster) {
                         console.log(data)
                         return (
                             <div>
@@ -51,18 +52,22 @@ function Detalhes() {
                                             <p>Ano: {data.ano}</p>
                                             <p>Nota: {}</p>
                                             <p>Sinopse: {data.sinopse}</p>
+                                            <Assistindo javisto={data.assistido}/>
 
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         )
                     }
+                    
                 })()}
 
             </div>
-            <Comments filme={data.titulo} />
+            <div  className="container" style={{border: '1px solid #d3d3d3'}}>
+                <Comments filme={data.titulo} />
+            </div>
+            
         </div>
     )
 }
