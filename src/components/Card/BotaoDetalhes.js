@@ -1,11 +1,10 @@
-import Detalhes from "../../pages/detalhes"
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 
 export default function BotaoDetalhes({ id, nota }) {
     const [notaAtual, setNota] = useState('')
 
-    function getNota(){
+    function getNota() {
         setNota = nota;
         return notaAtual
     }
@@ -15,11 +14,12 @@ export default function BotaoDetalhes({ id, nota }) {
             <Link to={`/detalhes/${id}`}>
                 <button
                     type="button"
-                    onClick={ () => getNota}
                 >
+
                     Detalhes
+
                 </button>
             </Link>
         </div>
     )
-} 
+}

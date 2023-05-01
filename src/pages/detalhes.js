@@ -4,9 +4,9 @@ import Title from '../components/Titulo';
 import Comments from './../components/Comments/index';
 import { useParams } from 'react-router-dom';
 
-function Detalhes({ id, nota }) {
-    const [idFilm] = useParams()
+function Detalhes() {
     const [data, setData] = useState('');
+    let {id} = useParams()
 
     useEffect(() => {
         fetch(`https://my-json-server.typicode.com/marycamila184/moviedetails/moviedetails/${id}`)
@@ -14,6 +14,9 @@ function Detalhes({ id, nota }) {
             .then(data => setData(data))
             .catch(err => console.error(err))
     }, [id])
+    if(!data){
+        return <p>Carregando...</p>
+    }
 
     return (
         <div>
@@ -24,7 +27,7 @@ function Detalhes({ id, nota }) {
 
                 {(() => {
                     if (data === null) {
-                        console.log(data.value)
+                        console.log(data)
                         return (
                             <div>
                                 <p>Não será possível exibir os detalhes deste filme pois parece que há informações faltando</p>
@@ -59,12 +62,9 @@ function Detalhes({ id, nota }) {
                 })()}
 
             </div>
+            <Comments filme={data.titulo} />
         </div>
     )
 }
 
 export default Detalhes;
-
-{/*
-    <Comments filme={data.titulo} />
-*/}

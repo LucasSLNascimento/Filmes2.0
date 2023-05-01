@@ -27,7 +27,6 @@ export default function Card() {
   const [film_Tit, setFilm_Tit] = useState('');
   const [ordena, setOrdena] = useState('titulo');
 
-
   useEffect(() => {
     fetch('https://my-json-server.typicode.com/marycamila184/movies/movies')
       .then(response => response.json())
@@ -87,7 +86,7 @@ export default function Card() {
                           javisto={filme.assistido}
                         />
 
-                        <Detalhes id={filme.id} nota={filme.nota} />
+                        <BotaoDetalhes id={filme.id} nota={filme.nota} />
 
                       </div>
                     </div>
@@ -95,9 +94,7 @@ export default function Card() {
                   </div>
                 ))}
               </div>
-
             )
-
           } else {
             return (
               <div class='row'>
@@ -112,7 +109,6 @@ export default function Card() {
                         <Assitido
                           javisto={filme.assistido}
                         />
-
                         <BotaoDetalhes id={filme.id} nota={filme.nota} />
 
                       </div>
@@ -126,6 +122,5 @@ export default function Card() {
         })()}
       </div>
     </div>
-
   )
 }
