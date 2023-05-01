@@ -74,9 +74,9 @@ export default function Card() {
             return (
               <div class='row' >
                 {busca.map((filme, i) => (
-                  <div className="col" key={i}>
+                  <div className="col-3" key={i}>
                     <div className="card" >
-                      <img src={filme.poster} alt={filme.titulo} className="card-img-top" style={{ height: '400px', width: '200px' }} />
+                      <img src={filme.poster} alt={filme.titulo} className="card-img-top" style={{ height: '400px', width: '200px', marginLeft: '50px', marginTop: '5px'}} />
                       <div className="card-body">
                         <h5 className="card-title">{filme.titulo} ({filme.ano}) </h5>
                         <p>Nota: {filme.nota}</p>
@@ -104,9 +104,9 @@ export default function Card() {
             return (
               <div class='row'>
                 {data.map((filme, i) => (
-                  <div className="col" key={i}>
+                  <div className="col-3" key={i}>
                     <div className="card">
-                      <img src={filme.poster} alt={filme.titulo} className="card-img-top" style={{ height: '400px', width: '200px', marginLeft: '18px', marginTop: '5px' }} />
+                      <img src={filme.poster} alt={filme.titulo} className="card-img-top" style={{ height: '400px', width: '200px', marginLeft: '50px', marginTop: '5px' }} />
                       <div className="card-body">
                         <h5 className="card-title">{filme.titulo}  </h5>
                         <h5 className="card-title">({filme.ano})</h5>

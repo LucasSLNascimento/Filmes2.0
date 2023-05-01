@@ -9,21 +9,26 @@ export default function Cadastro() {
         <div>
             <div className='container'>
                 <h5>Dados pessoais</h5>
-                <input className='options' type="text" name="nome" id="name" placeholder="Informe seu nome" /> <br />
-                <input className='options' type="tel" name="telefone" id="fone" placeholder='Informe seu telefone' /> <br />
-                <input className='options' type="text" name="endereco" id="ender" placeholder='Endereço' />
+                <input className='options' type="text" name="pessoal" id="nome" placeholder="Informe seu nome" /> <br />
+                <input className='options' type="tel" name="pessoal" id="telefone" placeholder='Informe seu telefone' /> <br />
+                <input className='options' type="text" name="pessoal" id="ender" placeholder='Endereço' />
             </div>
             <div className='container'>
                 <h5>Plano escolhido</h5>
-
+                <input type="radio" name="plano" id="basico" value='basico'/>
+                <label className='basic' for="basico">Básico</label>
+                <input type="radio" name="plano" id="gold" value='gold'/>
+                <label className='ouro' for="gold">Gold</label>
+                <input type="radio" name="plano" id="diamond" value='diamond'/>
+                <label className='diamante' for="diamond">Diamond</label>
 
             </div>
             <div className='container'>
                 <div style={{marginLeft: '500px', marginTop: '100px'}}>
                     <h5>Dados do cartão</h5>
-                    <input className='cartao' type="text" name="userCard" id="nameCard" placeholder='Nome do cartão' /> <br />
-                    <input className='cartao' type="text" name="numberCard" id="numCard" maxLength='20' placeholder='Número do cartão' /> <br />
-                    <input className='cartao' type="text" name="CVCCard" id="CVC" maxLength='3' placeholder='CVC' />
+                    <input className='cartao' type="text" name="cartao" id="nameCard" placeholder='Nome do cartão' /> <br />
+                    <input className='cartao' type="text" name="cartao" id="numCard" maxLength='20' placeholder='Número do cartão' /> <br />
+                    <input className='cartao' type="password" name="cartao" id="CVC" maxLength='3' placeholder='CVC' />
                 </div>
 
 

@@ -1,24 +1,21 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import Title from '../components/Titulo';
 import Comments from './../components/Comments/index';
 
-
-
-import { useEffect, useState } from "react";
-
 function Detalhes() {
     const { filme } = useParams();
-    const [data, setData] = useState('');
+    const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('https://my-json-server.typicode.com/marycamila184/moviedetails/moviedetails/{id}')
+        fetch('https://my-json-server.typicode.com/marycamila184/moviedetails/moviedetails/', filme)
             .then(response => response.json())
             .then(data => setData(data))
             .catch(err => console.error(err))
     }, [])
 
-    const filmeEscolhido = data.filter(f =>
+    const filmeEscolhido = data.filter((f) =>  
         f.id === filme
     );
 
@@ -28,24 +25,27 @@ function Detalhes() {
                 title={"Detalhes"}
                 text="Detalhes do filme selecionado" />
             <div className="container">
-                <div class='row' style={{border: '1px solid #d3d3d3'}}>
-                    <div class='col-6' style={{marginLeft: '190px', width:'500px'}}>
-                        <img src={'/assets/images/Vingadores.jpg'} alt={filmeEscolhido.titulo} className="card-img-top" />
-                    </div>
-                    <div class='col-4'>
-                        <div class='card'>
-                            <div class='card-header'>
-                                <p style={{textAlign:'center'}}>{filmeEscolhido.id}</p>
-                            </div>
-                            
-                            <div>
-                                <p>Descrição: {filmeEscolhido.descricao}</p>
-                                <p>Gênero: {filmeEscolhido.genero}</p>
-                            </div>
+                {filmeEscolhido.map((filme, i) => (
+                    <div class='row' style={{ border: '1px solid #d3d3d3' }}>
+                        <div class='col-6' style={{ marginLeft: '190px', width: '500px' }}>
+                            <img src={filme.poster} alt={filme.titulo} className="card-img-top" />
                         </div>
+                        <div class='col-4'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <p style={{ textAlign: 'center' }}>{filme.id}</p>
+                                </div>
 
-                    </div>                    
-                </div>
+                                <div>
+                                    <p>Descrição: {filme.descricao}</p>
+                                    <p>Gênero: {filme.genero}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                ))}
+
                 <Comments filme={filmeEscolhido.titulo} />
             </div>
         </div>
